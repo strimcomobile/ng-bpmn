@@ -7,6 +7,7 @@
   "assets": ["docs"],
   "allowedNonPeerDependencies": [
     "bpmn-js",
+    "bpmn-js-color-picker",
     "diagram-js",
     "bpmn-js-properties-panel",
     "diagram-js-minimap",

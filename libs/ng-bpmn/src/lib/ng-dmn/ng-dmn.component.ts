@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import DmnModeler from 'dmn-js/lib/Modeler';
 import { DmnPropertiesPanelModule, DmnPropertiesProviderModule } from 'dmn-js-properties-panel';
 import { ModelerComponent } from '../core/ModelerComponent';
@@ -29,7 +29,7 @@ export interface DmnView {
 @Component({
   selector: 'ng-dmn',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './ng-dmn.component.html',
   styleUrls: ['./ng-dmn.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -50,7 +50,9 @@ export class NgDmnComponent extends ModelerComponent implements Modeler, OnInit,
   @Output()
   importDone = new EventEmitter<ImportEvent>();
 
-  constructor(private http: HttpClient) {
+  private readonly http = inject(HttpClient);
+
+  constructor() {
     super();
   }
 

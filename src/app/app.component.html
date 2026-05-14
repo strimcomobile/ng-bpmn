@@ -8,7 +8,7 @@
         [showMinimap]="true"
         [hotkeys]="true"
         (importDone)="handleImported($event)"
-        (changed)="onChanged($event)" />
+        (changed)="onChanged()" />
     </ng-template>
   </mat-tab>
 
@@ -35,9 +35,11 @@
 
 
 
-<div class="import-error" *ngIf="importError">
-  <strong>Failed to render diagram: </strong>
-  {{ importError.message }}
-</div>
+@if (importError) {
+  <div class="import-error">
+    <strong>Failed to render diagram: </strong>
+    {{ importError.message }}
+  </div>
+}
 
 <router-outlet></router-outlet>

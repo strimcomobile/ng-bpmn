@@ -1,6 +1,6 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, inject, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ImportEvent } from '../core/ImportEvent';
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ModelerComponent } from '../core/ModelerComponent';
 import { Modeler } from '../core/Modeler';
@@ -19,7 +19,7 @@ import CmmnActionsModule from '../core/modeling/CmmnActionsModule';
 @Component({
   selector: 'ng-cmmn',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './ng-cmmn.component.html',
   styleUrls: ['./ng-cmmn.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -44,7 +44,9 @@ export class NgCmmnComponent extends ModelerComponent implements Modeler, OnInit
     return this.cmmnJS.get('editorActions');
   }
 
-  constructor(private http: HttpClient) {
+  private readonly http = inject(HttpClient);
+
+  constructor() {
     super();
   }
 

@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -12,11 +13,13 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, Subscription, from, map, of, switchMap } from 'rxjs';
+import type { ModuleDeclaration } from 'didi';
 import BpmnModeler from 'bpmn-js/lib/Modeler';
 import Canvas from 'diagram-js/lib/core/Canvas';
 import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from 'bpmn-js-properties-panel';
+import ColorPickerModule from 'bpmn-js-color-picker';
 import MinimapModule from 'diagram-js-minimap';
 import AddExporter from '@bpmn-io/add-exporter';
 import { EditorActions } from '../core/modeling/EditorActions';
@@ -36,10 +39,17 @@ export interface DiagramChangedEvent {
   error?: Error;
 }
 
+/** Preset for the BPMN color picker (stroke/fill are persisted in diagram XML). */
+export interface BpmnColorOption {
+  label: string;
+  fill?: string;
+  stroke?: string;
+}
+
 @Component({
   selector: 'ng-bpmn',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './ng-bpmn.component.html',
   styleUrls: ['./ng-bpmn.component.scss'],
   encapsulation: ViewEncapsulation.None
@@ -52,6 +62,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Input() showMinimap = false;
   @Input() autoOpenMinimap = false;
   @Input() hotkeys = false;
+  /** When true, adds a “Set color” entry to the context pad (bpmn-js-color-picker). */
+  @Input() colorPicker = true;
+  /** Optional palette; defaults to the built‑in presets from bpmn-js-color-picker. */
+  @Input() colorPalette?: BpmnColorOption[];
 
   @ViewChild('canvas', { static: true })
   private canvas?: ElementRef;
@@ -65,7 +79,9 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Output()
   changed = new EventEmitter<DiagramChangedEvent>();
 
-  constructor(private http: HttpClient) {
+  private readonly http = inject(HttpClient);
+
+  constructor() {
     super();
   }
 
@@ -74,20 +90,33 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   }
 
   ngOnInit(): void {
-    const additionalModules = [AddExporter, BpmnPropertiesPanelModule, BpmnPropertiesProviderModule, DiagramActionsModule, BpmnActionsModule];
+    const additionalModules: ModuleDeclaration[] = [
+      AddExporter,
+      BpmnPropertiesPanelModule,
+      BpmnPropertiesProviderModule,
+      DiagramActionsModule,
+      BpmnActionsModule
+    ];
 
     if (this.showMinimap) {
       additionalModules.push(MinimapModule);
     }
 
-    const modeler = new BpmnModeler({
+    if (this.colorPicker) {
+      additionalModules.push(ColorPickerModule);
+    }
+
+    const modelerOptions = {
       exporter,
       container: this.canvas?.nativeElement,
       propertiesPanel: {
         parent: this.properties?.nativeElement
       },
-      additionalModules
-    });
+      additionalModules,
+      ...(this.colorPicker && this.colorPalette?.length ? { colorPicker: { colors: this.colorPalette } } : {})
+    } as ConstructorParameters<typeof BpmnModeler>[0];
+
+    const modeler = new BpmnModeler(modelerOptions);
 
     if (this.showMinimap && this.autoOpenMinimap) {
       modeler.get<DiagramMinimap>('minimap').open();

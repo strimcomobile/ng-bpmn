@@ -1,5 +1,6 @@
-import 'jest-preset-angular/setup-jest';
+import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 
+setupZoneTestEnv();
 jest.mock('bpmn-js/lib/Modeler', () => {
   return {
     default: jest.fn().mockImplementation(() => {

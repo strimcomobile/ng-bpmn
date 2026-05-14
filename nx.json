@@ -21,11 +21,7 @@
       "inputs": ["default", "^production"]
     },
     "lint": {
-      "inputs": [
-        "default",
-        "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/.eslintignore"
-      ]
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json", "{workspaceRoot}/.eslintignore", "{workspaceRoot}/.eslintrc.base.json"]
     }
   },
   "namedInputs": {
@@ -54,5 +50,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ng-bpmn-app"
+  "defaultProject": "ng-bpmn-app",
+  "analytics": true
 }
