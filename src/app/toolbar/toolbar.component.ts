@@ -5,7 +5,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
-import { Modeler, ModelingService, ModelerActions } from '@denysvuika/ng-bpmn';
+import { Modeler, ModelingService, ModelerActions } from '@denizz311/ng-bpmn';
 import { AppToolbarActionComponent } from './toolbar-action.component';
 
 @Component({

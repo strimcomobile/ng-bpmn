@@ -1,1 +1,3 @@
-18
+@denizz311:registry=https://REGISTRY_HOST/
+//REGISTRY_HOST/:_authToken=${TOKEN}
+always-auth=true

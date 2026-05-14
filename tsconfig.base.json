@@ -16,7 +16,7 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@denysvuika/ng-bpmn": ["libs/ng-bpmn/src/index.ts"]
+      "@denizz311/ng-bpmn": ["libs/ng-bpmn/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

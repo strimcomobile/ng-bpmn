@@ -7,7 +7,7 @@ Standalone BPMN components for your Angular applications.
 Install the dependency:
 
 ```sh
-npm i @DenysVuika/ng-bpmn
+npm i @denizz311/ng-bpmn
 ```
 
 ## BPMN

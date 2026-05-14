@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "ng-bpmn-app",
+  "npmScope": "denizz311",
   "tasksRunnerOptions": {
     "default": {
       "runner": "nx/tasks-runners/default",

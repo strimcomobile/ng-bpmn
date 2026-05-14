@@ -42,6 +42,14 @@
       "options": {
         "lintFilePatterns": ["libs/ng-bpmn/**/*.ts", "libs/ng-bpmn/**/*.html"]
       }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "cwd": "dist/libs/ng-bpmn",
+        "command": "npm publish"
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ Standalone BPMN components for your Angular applications.
 ## Installing
 
 ```sh
-npm i @DenysVuika/ng-bpmn
+npm i @denizz311/ng-bpmn
 ```
 
 ## Basic Usage

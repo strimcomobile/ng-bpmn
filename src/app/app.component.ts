@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ImportEvent, NgBpmnComponent, NgCmmnComponent, NgDmnComponent } from '@denysvuika/ng-bpmn';
+import { ImportEvent, NgBpmnComponent, NgCmmnComponent, NgDmnComponent } from '@denizz311/ng-bpmn';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AppToolbarComponent } from './toolbar/toolbar.component';
 

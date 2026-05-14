@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Modeler, ModelerActions } from '@denysvuika/ng-bpmn';
+import { Modeler, ModelerActions } from '@denizz311/ng-bpmn';
 
 @Component({
   standalone: true,

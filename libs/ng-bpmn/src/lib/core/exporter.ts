@@ -1,4 +1,4 @@
 export const exporter = {
-  name: '@DenysVuika@ng-bpmn',
+  name: '@denizz311@ng-bpmn',
   version: '1.0.0'
 };
