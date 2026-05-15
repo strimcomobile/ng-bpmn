@@ -16,7 +16,7 @@ npm i @denizz311/ng-bpmn
 <ng-bpmn [url]="diagramUrl" />
 ```
 
-![default](https://github.com/DenysVuika/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-default.png?raw=true)
+![default](https://github.com/strimcomobile/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-default.png?raw=true)
 
 ### Keyboard Hotkeys
 
@@ -82,7 +82,7 @@ export class AppComponent {
 <ng-bpmn [url]="diagramUrl" [showProperties]="true" />
 ```
 
-![properties panel](https://github.com/DenysVuika/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-properties.png?raw=true)
+![properties panel](https://github.com/strimcomobile/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-properties.png?raw=true)
 
 ### Minimap
 
@@ -90,7 +90,21 @@ export class AppComponent {
 <ng-bpmn [url]="diagramUrl" [showProperties]="true" [showMinimap]="true" />
 ```
 
-![minimap](https://github.com/DenysVuika/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-minimap.png?raw=true)
+![minimap](https://github.com/strimcomobile/ng-bpmn/blob/main/libs/ng-bpmn/docs/ng-bpmn-minimap.png?raw=true)
+
+### Comments
+
+Embedded comments are stored in the BPMN XML (`bpmn:documentation` with `textFormat="text/x-comments"`) via [bpmn-js-embedded-comments](https://github.com/bpmn-io/bpmn-js-embedded-comments).
+
+```html
+<ng-bpmn [url]="diagramUrl" [showComments]="true" />
+```
+
+On each flow node, click the comment icon to add or view comments. Access the underlying service from a component reference:
+
+```ts
+bpmnComponent.comments?.getComments(element);
+```
 
 ## DMN
 

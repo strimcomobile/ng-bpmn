@@ -20,6 +20,7 @@ import BpmnModeler from 'bpmn-js/lib/Modeler';
 import Canvas from 'diagram-js/lib/core/Canvas';
 import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from 'bpmn-js-properties-panel';
 import ColorPickerModule from 'bpmn-js-color-picker';
+import CommentsModule from 'bpmn-js-embedded-comments';
 import MinimapModule from 'diagram-js-minimap';
 import AddExporter from '@bpmn-io/add-exporter';
 import { EditorActions } from '../core/modeling/EditorActions';
@@ -29,6 +30,7 @@ import { ModelerActions } from '../core/modeling/ModelerActions';
 import DiagramActionsModule from '../core/modeling/DiagramActionsModule';
 import BpmnActionsModule from '../core/modeling/BpmnActionsModule';
 import { DiagramMinimap } from '../core/modeling/DiagramMinimap';
+import { DiagramComments } from '../core/modeling/DiagramComments';
 import { debounce } from '../utils/debounce';
 import { ImportEvent } from '../core/ImportEvent';
 import { exporter } from '../core/exporter';
@@ -61,6 +63,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Input() showProperties = false;
   @Input() showMinimap = false;
   @Input() autoOpenMinimap = false;
+  /** When true, enables embedded comments on flow nodes (bpmn-js-embedded-comments). */
+  @Input() showComments = false;
   @Input() hotkeys = false;
   /** When true, adds a “Set color” entry to the context pad (bpmn-js-color-picker). */
   @Input() colorPicker = true;
@@ -89,6 +93,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
     return this.bpmnJS?.get<EditorActions>('editorActions');
   }
 
+  get comments(): DiagramComments | undefined {
+    return this.showComments ? this.bpmnJS?.get<DiagramComments>('comments') : undefined;
+  }
+
   ngOnInit(): void {
     const additionalModules: ModuleDeclaration[] = [
       AddExporter,
@@ -100,6 +108,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
 
     if (this.showMinimap) {
       additionalModules.push(MinimapModule);
+    }
+
+    if (this.showComments) {
+      additionalModules.push(CommentsModule);
     }
 
     if (this.colorPicker) {

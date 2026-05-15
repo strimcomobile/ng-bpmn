@@ -1,4 +1,5 @@
 declare module 'bpmn-js-color-picker';
+declare module 'bpmn-js-embedded-comments';
 declare module 'bpmn-js-properties-panel';
 declare module 'bpmn-js-properties-panel/*';
 // declare module 'dmn-js/lib/*';
