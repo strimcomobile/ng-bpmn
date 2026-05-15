@@ -22,6 +22,7 @@ import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from 'bpmn-js
 import ColorPickerModule from 'bpmn-js-color-picker';
 import CommentsModule from 'bpmn-js-embedded-comments';
 import MinimapModule from 'diagram-js-minimap';
+import CommentsSupportModule from '../core/modeling/CommentsSupportModule';
 import AddExporter from '@bpmn-io/add-exporter';
 import { EditorActions } from '../core/modeling/EditorActions';
 import { Modeler } from '../core/Modeler';
@@ -111,7 +112,7 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
     }
 
     if (this.showComments) {
-      additionalModules.push(CommentsModule);
+      additionalModules.push(CommentsModule, CommentsSupportModule);
     }
 
     if (this.colorPicker) {
@@ -151,6 +152,12 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
         console.error(err);
       }
     });
+    if (this.showComments) {
+      modeler.on('comments.updated', onChanged);
+      modeler.on('canvas.click', () => {
+        modeler.get<DiagramComments>('comments')?.collapseAll();
+      });
+    }
 
     modeler.on('commandStack.changed', onChanged);
     modeler.on('import.done', onChanged);

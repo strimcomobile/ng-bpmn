@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ImportEvent, NgBpmnComponent, NgCmmnComponent, NgDmnComponent } from '@denizz311/ng-bpmn';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AppToolbarComponent } from './toolbar/toolbar.component';
+import { ImportEvent, NgBpmnComponent, NgCmmnComponent, NgDmnComponent } from '@denizz311/ng-bpmn';
 
 @Component({
   standalone: true,

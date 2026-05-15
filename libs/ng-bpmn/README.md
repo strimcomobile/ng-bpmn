@@ -100,7 +100,9 @@ Embedded comments are stored in the BPMN XML (`bpmn:documentation` with `textFor
 <ng-bpmn [url]="diagramUrl" [showComments]="true" />
 ```
 
-On each flow node, click the comment icon to add or view comments. Access the underlying service from a component reference:
+Select a flow node (task, event, gateway), then click the green comment icon on the element. Type your comment and press **Enter** to save (Shift+Enter for a new line). Click elsewhere on the canvas to collapse open comment boxes.
+
+Access the underlying service from a component reference:
 
 ```ts
 bpmnComponent.comments?.getComments(element);

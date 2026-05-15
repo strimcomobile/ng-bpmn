@@ -49,5 +49,8 @@
   "sideEffects": false,
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "@bpmn-io/diagram-js-ui": "0.2.0"
   }
 }

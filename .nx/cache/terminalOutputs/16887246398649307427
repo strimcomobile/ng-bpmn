@@ -1,0 +1,56 @@
+(node:87824) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-embedded-comments/dist/index.esm.js depends on 'jquery'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-properties-panel/dist/index.esm.js depends on '@bpmn-io/extract-process-variables'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-properties-panel/dist/index.esm.js depends on '@bpmn-io/extract-process-variables/zeebe'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-properties-panel/dist/index.esm.js depends on 'array-move'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-properties-panel/dist/index.esm.js depends on 'classnames'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js-properties-panel/dist/index.esm.js depends on 'semver-compare'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/bpmn-js/lib/model/Types.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/diagram-js/lib/core/Types.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/diagram-js/lib/layout/LayoutUtil.js depends on 'path-intersection'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/diagram-js/lib/model/Types.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/diagram-js/lib/util/Types.ts is part of the TypeScript compilation but it's unused.
+Add only entry points to the 'files' or 'include' properties in your tsconfig.
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/node_modules/dmn-js-shared/lib/components/ContentEditable.js depends on 'escape-html'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/src/lib/ng-cmmn/ng-cmmn.component.ts depends on 'cmmn-js-properties-panel/lib/provider/cmmn'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/src/lib/ng-cmmn/ng-cmmn.component.ts depends on 'cmmn-js/lib/Modeler'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+[0m[33mWarning: [39m[0m/Users/loziuk/work/ng-bpmn/libs/ng-bpmn/src/lib/services/ModelingService.ts depends on 'file-saver'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.dev/tools/cli/build#configuring-commonjs-dependencies
+
+
+
+[0m[36m./libs/ng-bpmn/node_modules/@bpmn-io/diagram-js-ui/lib/index.js[39m[0m:[0m[93m3:0-183[39m[0m - [0m[91mError: [39m[0mexport 'useId' (reexported as 'useId') was not found in 'preact/hooks' (possible exports: useCallback, useContext, useDebugValue, useEffect, useErrorBoundary, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState)
+
+

@@ -1,0 +1,94 @@
+(node:74024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:74071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:74073) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:74072) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[7m[1m[31m FAIL [39m[22m[27m[0m [0m[7m[37m ng-bpmn [39m[27m[0m [2mlibs/ng-bpmn/src/lib/ng-cmmn/[22m[1mng-cmmn.component.spec.ts[22m
+[1m[31m  [1m● [22m[1mNgCmmnComponent › should create[39m[22m
+
+    Need to call TestBed.initTestEnvironment() first
+[2m[22m
+[2m       9 |[22m
+[2m      10 |   beforeEach(async () => {[22m
+[2m    > 11 |     await TestBed.configureTestingModule({[22m
+[2m         |                   ^[22m
+[2m      12 |       imports: [NgCmmnComponent],[22m
+[2m      13 |       providers: [provideHttpClient(), provideHttpClientTesting()][22m
+[2m      14 |     }).compileComponents();[22m
+[2m[22m
+[2m      [2mat _TestBedImpl.get compiler [as compiler] ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1486:13)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1402:10)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1273:33)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-cmmn/ng-cmmn.component.spec.ts[39m[0m[2m:11:19[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/tslib/tslib.js[2m:170:75[22m[2m[22m
+[2m      [2mat new ZoneAwarePromise ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:2580:29)[22m[2m[22m
+[2m      [2mat Object.__awaiter ([22m[2mnode_modules/tslib/tslib.js[2m:166:16)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-cmmn/ng-cmmn.component.spec.ts[39m[0m[2m:10:25[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:410:32)[22m[2m[22m
+[2m      [2mat ProxyZoneSpec.onInvoke ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:2219:43)[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:409:38)[22m[2m[22m
+[2m      [2mat ZoneImpl.run ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:145:47)[22m[2m[22m
+[2m      [2mat Object.wrappedFunc ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:449:38)[22m[2m[22m
+
+[0m[7m[1m[31m FAIL [39m[22m[27m[0m [0m[7m[37m ng-bpmn [39m[27m[0m [2mlibs/ng-bpmn/src/lib/ng-dmn/[22m[1mng-dmn.component.spec.ts[22m
+[1m[31m  [1m● [22m[1mNgDmnComponent › should create[39m[22m
+
+    Need to call TestBed.initTestEnvironment() first
+[2m[22m
+[2m       9 |[22m
+[2m      10 |   beforeEach(async () => {[22m
+[2m    > 11 |     await TestBed.configureTestingModule({[22m
+[2m         |                   ^[22m
+[2m      12 |       imports: [NgDmnComponent],[22m
+[2m      13 |       providers: [provideHttpClient(), provideHttpClientTesting()][22m
+[2m      14 |     }).compileComponents();[22m
+[2m[22m
+[2m      [2mat _TestBedImpl.get compiler [as compiler] ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1486:13)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1402:10)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1273:33)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-dmn/ng-dmn.component.spec.ts[39m[0m[2m:11:19[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/tslib/tslib.js[2m:170:75[22m[2m[22m
+[2m      [2mat new ZoneAwarePromise ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:2580:29)[22m[2m[22m
+[2m      [2mat Object.__awaiter ([22m[2mnode_modules/tslib/tslib.js[2m:166:16)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-dmn/ng-dmn.component.spec.ts[39m[0m[2m:10:25[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:410:32)[22m[2m[22m
+[2m      [2mat ProxyZoneSpec.onInvoke ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:2219:43)[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:409:38)[22m[2m[22m
+[2m      [2mat ZoneImpl.run ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:145:47)[22m[2m[22m
+[2m      [2mat Object.wrappedFunc ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:449:38)[22m[2m[22m
+
+[0m[7m[1m[31m FAIL [39m[22m[27m[0m [0m[7m[37m ng-bpmn [39m[27m[0m [2mlibs/ng-bpmn/src/lib/ng-bpmn/[22m[1mng-bpmn.component.spec.ts[22m
+[1m[31m  [1m● [22m[1mNgBpmnComponent › should create[39m[22m
+
+    Need to call TestBed.initTestEnvironment() first
+[2m[22m
+[2m       9 |[22m
+[2m      10 |   beforeEach(async () => {[22m
+[2m    > 11 |     await TestBed.configureTestingModule({[22m
+[2m         |                   ^[22m
+[2m      12 |       imports: [NgBpmnComponent],[22m
+[2m      13 |       providers: [provideHttpClient(), provideHttpClientTesting()][22m
+[2m      14 |     }).compileComponents();[22m
+[2m[22m
+[2m      [2mat _TestBedImpl.get compiler [as compiler] ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1486:13)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1402:10)[22m[2m[22m
+[2m      [2mat _TestBedImpl.configureTestingModule ([22m[2mnode_modules/@angular/core/fesm2022/testing.mjs[2m:1273:33)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-bpmn/ng-bpmn.component.spec.ts[39m[0m[2m:11:19[22m[2m[22m
+[2m      [2mat [22m[2mnode_modules/tslib/tslib.js[2m:170:75[22m[2m[22m
+[2m      [2mat new ZoneAwarePromise ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:2580:29)[22m[2m[22m
+[2m      [2mat Object.__awaiter ([22m[2mnode_modules/tslib/tslib.js[2m:166:16)[22m[2m[22m
+[2m      [2mat [22m[2m[0m[36msrc/lib/ng-bpmn/ng-bpmn.component.spec.ts[39m[0m[2m:10:25[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:410:32)[22m[2m[22m
+[2m      [2mat ProxyZoneSpec.onInvoke ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:2219:43)[22m[2m[22m
+[2m      [2mat _ZoneDelegate.invoke ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:409:38)[22m[2m[22m
+[2m      [2mat ZoneImpl.run ([22m[2m../../node_modules/zone.js/bundles/zone.umd.js[2m:145:47)[22m[2m[22m
+[2m      [2mat Object.wrappedFunc ([22m[2m../../node_modules/zone.js/bundles/zone-testing.umd.js[2m:449:38)[22m[2m[22m
+
+[1mTest Suites: [22m[1m[31m3 failed[39m[22m, 3 total
+[1mTests:       [22m[1m[31m3 failed[39m[22m, 3 total
+[1mSnapshots:   [22m0 total
+[1mTime:[22m        [1m[33m3.621 s[39m[22m
+[2mRan all test suites[22m[2m.[22m

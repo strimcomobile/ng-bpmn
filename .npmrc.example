@@ -1,0 +1,10 @@
+# Copy to .npmrc (do not commit secrets) or set in CI.
+#
+# Public npm (registry.npmjs.org): run `npm login`, then `npm run publish:ng-bpmn`.
+# No .npmrc is required unless you use a custom registry or automation token.
+#
+# Private registry — replace REGISTRY_HOST and set NPM_TOKEN:
+
+@denizz311:registry=https://REGISTRY_HOST/
+//REGISTRY_HOST/:_authToken=${NPM_TOKEN}
+always-auth=true

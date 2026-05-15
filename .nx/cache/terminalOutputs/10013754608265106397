@@ -1,0 +1,36 @@
+(node:19011) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[34mBuilding Angular Package[39m
+[37m[39m
+[37m------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@denizz311/ng-bpmn'[39m
+[37m------------------------------------------------------------------------------[39m
+- Compiling with Angular sources in partial compilation mode.
+[33mWARNING: ▲ [WARNING] Deprecation [plugin angular-sass][39m
+[33m[39m
+[33m    src/lib/ng-bpmn/ng-bpmn.component.scss:8:8:[39m
+[33m      8 │ @import './comments.scss';[39m
+[33m        ╵         ^[39m
+[33m[39m
+[33m[39m
+[33m  Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.[39m
+[33m  [39m
+[33m  More info and automated migrator: https://sass-lang.com/d/import[39m
+[33m[39m
+[33m[39m
+[32m✔[39m Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Generating FESM and DTS bundles
+- Copying assets
+[32m✔[39m Copying assets
+- Writing package manifest
+[32m✔[39m Writing package manifest
+[32m✔[39m Built @denizz311/ng-bpmn
+[32m[39m
+[32m------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package[39m
+[32m- from: /Users/loziuk/work/ng-bpmn/libs/ng-bpmn[39m
+[32m- to:   /Users/loziuk/work/ng-bpmn/dist/libs/ng-bpmn[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m[39m[37m[39m
+[37m[37mBuild at: [1m2026-05-15T11:09:20.648Z[22m - Time: [1m995[22mms[39m[37m[39m
+[37m[37m[39m[37m[39m

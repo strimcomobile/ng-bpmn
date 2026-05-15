@@ -1,0 +1,24 @@
+(node:73667) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[34mBuilding Angular Package[39m
+[37m[39m
+[37m------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@denizz311/ng-bpmn'[39m
+[37m------------------------------------------------------------------------------[39m
+- Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Compiling with Angular sources in partial compilation mode.
+[32m✔[39m Generating FESM and DTS bundles
+- Copying assets
+[32m✔[39m Copying assets
+- Writing package manifest
+[32m✔[39m Writing package manifest
+[32m✔[39m Built @denizz311/ng-bpmn
+[32m[39m
+[32m------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package[39m
+[32m- from: /Users/loziuk/work/ng-bpmn/libs/ng-bpmn[39m
+[32m- to:   /Users/loziuk/work/ng-bpmn/dist/libs/ng-bpmn[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m[39m[37m[39m
+[37m[37mBuild at: [1m2026-05-15T09:59:28.554Z[22m - Time: [1m838[22mms[39m[37m[39m
+[37m[37m[39m[37m[39m

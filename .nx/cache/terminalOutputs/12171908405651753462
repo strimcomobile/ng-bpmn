@@ -1,0 +1,21 @@
+> nx run ng-bpmn:build:production
+
+[34mBuilding Angular Package[39m
+[37m[39m
+[37m------------------------------------------------------------------------------[39m
+[37mBuilding entry point '@denizz311/ng-bpmn'[39m
+[37m------------------------------------------------------------------------------[39m
+[?2026h[1G[36m⠋[39m Compiling with Angular sources in partial compilation mode.[?2026l[?2026h[1G[0K[36m⠙[39m Compiling with Angular sources in partial compilation mode.[?2026l[?2026h[1G[0K[36m⠹[39m Compiling with Angular sources in partial compilation mode.[?2026l[?2026h[1G[0K[36m⠸[39m Compiling with Angular sources in partial compilation mode.[?2026l[?2026h[1G[0K[36m⠼[39m Compiling with Angular sources in partial compilation mode.[?2026l[1G[0K[32m✔[39m Compiling with Angular sources in partial compilation mode.
+[?2026h[1G[36m⠋[39m Writing FESM and DTS bundles[?2026l[1G[0K[32m✔[39m Writing FESM and DTS bundles
+[?2026h[1G[36m⠋[39m Copying assets[?2026l[1G[0K[32m✔[39m Copying assets
+[?2026h[1G[36m⠋[39m Writing package manifest[?2026l[1G[0K[32m✔[39m Writing package manifest
+[1G[32m✔[39m Built @denizz311/ng-bpmn
+[32m[39m
+[32m------------------------------------------------------------------------------[39m
+[32mBuilt Angular Package[39m
+[32m- from: /Users/loziuk/work/ng-bpmn/libs/ng-bpmn[39m
+[32m- to:   /Users/loziuk/work/ng-bpmn/dist/libs/ng-bpmn[39m
+[32m------------------------------------------------------------------------------[39m
+[37m[37m[39m[37m[39m
+[37m[37mBuild at: [1m2026-05-14T12:15:32.979Z[22m - Time: [1m717[22mms[39m[37m[39m
+[37m[37m[39m[37m[39m
