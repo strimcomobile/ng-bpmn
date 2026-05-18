@@ -1,6 +1,7 @@
 import hotkeys from 'hotkeys-js';
 import { EditorActions } from './modeling/EditorActions';
 import { ModelerActions } from './modeling/ModelerActions';
+import { ModelerHotkeyBinding, ModelerHotkeyMap } from './modeling/ModelerHotkeys';
 
 export abstract class ModelerComponent {
   private hotkeyBindings: string[] = [];
@@ -21,14 +22,16 @@ export abstract class ModelerComponent {
     return undefined;
   }
 
-  protected bindHotkeys(actions: { [key: string]: ModelerActions }) {
+  protected bindHotkeys(actions: ModelerHotkeyMap) {
     for (const key of Object.keys(actions)) {
-      const action = actions[key];
+      const binding: ModelerHotkeyBinding = actions[key];
+      const action = typeof binding === 'string' ? binding : binding.action;
+      const options = typeof binding === 'string' ? undefined : binding.options;
 
       if (this.supportsAction(action)) {
         hotkeys(key, (event) => {
           event.preventDefault();
-          this.triggerAction(action);
+          this.triggerAction(action, options);
         });
         this.hotkeyBindings.push(key);
       } else {

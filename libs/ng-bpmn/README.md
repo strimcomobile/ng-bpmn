@@ -45,6 +45,20 @@ Supported hotkeys:
 | `Ctrl`+`v` | `Command`+`v` | paste |
 | `Ctrl`+`x` | `Command`+`x` | cut selection |
 | `Ctrl`+`f` | `Command`+`f` | find |
+| `↑` `↓` `←` `→` | `↑` `↓` `←` `→` | move selection (1px) |
+| `Shift`+`↑` `↓` `←` `→` | `Shift`+`↑` `↓` `←` `→` | move selection (10px) |
+
+Requires an element to be selected. With `[hotkeys]="false"`, click the diagram canvas first so it has focus.
+
+### Connection label link
+
+When a sequence flow (or its label) is selected, a dashed line links the external label to the connection:
+
+```html
+<ng-bpmn [url]="diagramUrl" [showLabelLink]="true" />
+```
+
+This matches the behavior added in [bpmn-js 18.9](https://github.com/bpmn-io/bpmn-js/pull/2328) and is enabled by default.
 
 ### Invoking Component API
 

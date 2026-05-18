@@ -23,6 +23,7 @@ import ColorPickerModule from 'bpmn-js-color-picker';
 import CommentsModule from 'bpmn-js-embedded-comments';
 import MinimapModule from 'diagram-js-minimap';
 import CommentsSupportModule from '../core/modeling/CommentsSupportModule';
+import LabelLinkModule from '../core/modeling/LabelLinkModule';
 import AddExporter from '@bpmn-io/add-exporter';
 import { EditorActions } from '../core/modeling/EditorActions';
 import { Modeler } from '../core/Modeler';
@@ -36,6 +37,7 @@ import { debounce } from '../utils/debounce';
 import { ImportEvent } from '../core/ImportEvent';
 import { exporter } from '../core/exporter';
 import { ImportCallback } from '../core/ImportCallback';
+import { MOVE_SELECTION_HOTKEYS } from '../core/modeling/ModelerHotkeys';
 
 export interface DiagramChangedEvent {
   xml?: string;
@@ -66,6 +68,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Input() autoOpenMinimap = false;
   /** When true, enables embedded comments on flow nodes (bpmn-js-embedded-comments). */
   @Input() showComments = false;
+  /** When true, shows a dashed line between a sequence flow and its external label when selected. */
+  @Input() showLabelLink = true;
   @Input() hotkeys = false;
   /** When true, adds a “Set color” entry to the context pad (bpmn-js-color-picker). */
   @Input() colorPicker = true;
@@ -115,17 +119,25 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules.push(CommentsModule, CommentsSupportModule);
     }
 
+    if (this.showLabelLink) {
+      additionalModules.push(LabelLinkModule);
+    }
+
     if (this.colorPicker) {
       additionalModules.push(ColorPickerModule);
     }
 
+    const canvasElement = this.canvas?.nativeElement;
+
     const modelerOptions = {
       exporter,
-      container: this.canvas?.nativeElement,
+      container: canvasElement,
       propertiesPanel: {
         parent: this.properties?.nativeElement
       },
       additionalModules,
+      // diagram-js keyboard (arrows, tools) — only when not using hotkeys-js globally
+      ...(!this.hotkeys && canvasElement ? { keyboard: { bindTo: canvasElement } } : {}),
       ...(this.colorPicker && this.colorPalette?.length ? { colorPicker: { colors: this.colorPalette } } : {})
     } as ConstructorParameters<typeof BpmnModeler>[0];
 
@@ -179,6 +191,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   }
 
   private onLoad() {
+    this.canvas?.nativeElement?.focus();
+
     if (this.hotkeys) {
       this.bindHotkeys();
     }
@@ -259,7 +273,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       c: ModelerActions.globalConnectTool,
       'ctrl+v, command+v': ModelerActions.paste,
       'ctrl+x, command+x': ModelerActions.cut,
-      'ctrl+f, command+f': ModelerActions.find
+      'ctrl+f, command+f': ModelerActions.find,
+      ...MOVE_SELECTION_HOTKEYS
     });
   }
 

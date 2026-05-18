@@ -12,6 +12,10 @@ ng-bpmn {
   display: flex;
   height: 100%;
 
+  .bjs-label-link {
+    pointer-events: none;
+  }
+
   .modeler {
     height: 100%;
     width: 100%;
@@ -20,6 +24,11 @@ ng-bpmn {
 
     .canvas {
       flex: 100%;
+      outline: none;
+
+      &:focus-visible {
+        box-shadow: inset 0 0 0 2px var(--color-blue-205-100-50, #4d90ff);
+      }
     }
 
     .properties {

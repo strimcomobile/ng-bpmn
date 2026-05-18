@@ -25,4 +25,5 @@ export enum ModelerActions {
   hasSelection = 'hasSelection',
   showMinimap = 'showMinimap',
   hideMinimap = 'hideMinimap',
+  moveSelection = 'moveSelection',
 }

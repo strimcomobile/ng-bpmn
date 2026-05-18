@@ -23,7 +23,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@denizz311/ng-bpmn",
-            "packageVersion": "0.1.2",
+            "packageVersion": "0.1.3",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -16824,6 +16824,16 @@
       {
         "source": "ng-bpmn",
         "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "ng-bpmn",
+        "target": "npm:min-dom",
+        "type": "static"
+      },
+      {
+        "source": "ng-bpmn",
+        "target": "npm:tiny-svg",
         "type": "static"
       },
       {
@@ -40774,5 +40784,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1778843405393
+  "computedAt": 1779102335444
 }

@@ -1,8 +1,8 @@
 {
   "run": {
-    "command": "nx build ng-bpmn-app",
-    "startTime": "2026-05-15T11:09:21.251Z",
-    "endTime": "2026-05-15T11:09:34.782Z",
+    "command": "nx run ng-bpmn:build",
+    "startTime": "2026-05-18T11:06:01.677Z",
+    "endTime": "2026-05-18T11:06:03.050Z",
     "inner": false
   },
   "tasks": [
@@ -10,20 +10,9 @@
       "taskId": "ng-bpmn:build:production",
       "target": "build",
       "projectName": "ng-bpmn",
-      "hash": "10013754608265106397",
-      "startTime": "2026-05-15T11:09:21.277Z",
-      "endTime": "2026-05-15T11:09:21.280Z",
-      "params": "",
-      "cacheStatus": "local-cache-hit",
-      "status": 0
-    },
-    {
-      "taskId": "ng-bpmn-app:build:production",
-      "target": "build",
-      "projectName": "ng-bpmn-app",
-      "hash": "6591172828845289961",
-      "startTime": "2026-05-15T11:09:21.280Z",
-      "endTime": "2026-05-15T11:09:34.774Z",
+      "hash": "12777377699368154976",
+      "startTime": "2026-05-18T11:06:01.714Z",
+      "endTime": "2026-05-18T11:06:03.040Z",
       "params": "",
       "cacheStatus": "cache-miss",
       "status": 0
