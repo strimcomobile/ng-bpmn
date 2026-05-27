@@ -6,5 +6,6 @@ export * from './lib/core/ImportEvent';
 export * from './lib/core/Modeler';
 export * from './lib/core/modeling/ModelerActions';
 export * from './lib/core/modeling/DiagramComments';
+export type { PaletteControlsConfig } from './lib/core/modeling/PaletteControlsModule';
 
 export * from './lib/services/ModelingService';

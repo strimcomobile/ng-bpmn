@@ -1,14 +1,14 @@
 <mat-tab-group animationDuration="0ms" [mat-stretch-tabs]="false">
   <mat-tab label="BPMN">
     <ng-template matTabContent>
-      <app-toolbar [modeler]="bpmn" />
+<!--      <app-toolbar [modeler]="bpmn" />-->
       <ng-bpmn #bpmn
         [url]="'/assets/diagram.bpmn'"
-        [showProperties]="false"
         [showMinimap]="true"
         [showComments]="true"
         [showLabelLink]="true"
         [hotkeys]="true"
+        [paletteControls]="true"
         (importDone)="handleImported($event)"
         (changed)="onChanged()" />
     </ng-template>

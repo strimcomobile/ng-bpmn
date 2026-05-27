@@ -1,3 +1,5 @@
+import type { ExportImageOptions } from './modeling/ModelerActions';
+
 export interface Modeler {
   saveXML(): Promise<string | undefined>;
   saveSVG(): Promise<string | undefined>;
@@ -5,4 +7,7 @@ export interface Modeler {
   supportsAction(action: string): boolean;
   triggerAction(action: string, params?: any): any;
   toggleProperties(): void;
+
+  /** Implementations are optional; PNG/JPG export is offered by `NgBpmnComponent`. */
+  exportImage?(options?: ExportImageOptions): Promise<void>;
 }

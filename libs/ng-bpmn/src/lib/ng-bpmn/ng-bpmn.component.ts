@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -28,9 +29,12 @@ import AddExporter from '@bpmn-io/add-exporter';
 import { EditorActions } from '../core/modeling/EditorActions';
 import { Modeler } from '../core/Modeler';
 import { ModelerComponent } from '../core/ModelerComponent';
-import { ModelerActions } from '../core/modeling/ModelerActions';
+import { ExportImageOptions, ModelerActions } from '../core/modeling/ModelerActions';
 import DiagramActionsModule from '../core/modeling/DiagramActionsModule';
 import BpmnActionsModule from '../core/modeling/BpmnActionsModule';
+import PaletteControlsModule, {
+  PaletteControlsConfig
+} from '../core/modeling/PaletteControlsModule';
 import { DiagramMinimap } from '../core/modeling/DiagramMinimap';
 import { DiagramComments } from '../core/modeling/DiagramComments';
 import { debounce } from '../utils/debounce';
@@ -38,6 +42,7 @@ import { ImportEvent } from '../core/ImportEvent';
 import { exporter } from '../core/exporter';
 import { ImportCallback } from '../core/ImportCallback';
 import { MOVE_SELECTION_HOTKEYS } from '../core/modeling/ModelerHotkeys';
+import { ModelingService } from '../services/ModelingService';
 
 export interface DiagramChangedEvent {
   xml?: string;
@@ -75,6 +80,12 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Input() colorPicker = true;
   /** Optional palette; defaults to the built‑in presets from bpmn-js-color-picker. */
   @Input() colorPalette?: BpmnColorOption[];
+  /**
+   * When true, adds a `controls` group to the bpmn-js palette with shortcuts
+   * for clipboard, history, zoom, the properties panel toggle and PNG/JPG
+   * export. Pass an object to enable/disable individual entries.
+   */
+  @Input() paletteControls: boolean | PaletteControlsConfig = false;
 
   @ViewChild('canvas', { static: true })
   private canvas?: ElementRef;
@@ -89,6 +100,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   changed = new EventEmitter<DiagramChangedEvent>();
 
   private readonly http = inject(HttpClient);
+  private readonly modelingService = inject(ModelingService);
+  private readonly cdr = inject(ChangeDetectorRef);
 
   constructor() {
     super();
@@ -127,7 +140,16 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules.push(ColorPickerModule);
     }
 
+    if (this.paletteControls) {
+      additionalModules.push(PaletteControlsModule);
+    }
+
     const canvasElement = this.canvas?.nativeElement;
+
+    const paletteControlsConfig =
+      typeof this.paletteControls === 'object' && this.paletteControls !== null
+        ? this.paletteControls
+        : undefined;
 
     const modelerOptions = {
       exporter,
@@ -138,7 +160,8 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules,
       // diagram-js keyboard (arrows, tools) — only when not using hotkeys-js globally
       ...(!this.hotkeys && canvasElement ? { keyboard: { bindTo: canvasElement } } : {}),
-      ...(this.colorPicker && this.colorPalette?.length ? { colorPicker: { colors: this.colorPalette } } : {})
+      ...(this.colorPicker && this.colorPalette?.length ? { colorPicker: { colors: this.colorPalette } } : {}),
+      ...(paletteControlsConfig ? { paletteControls: paletteControlsConfig } : {})
     } as ConstructorParameters<typeof BpmnModeler>[0];
 
     const modeler = new BpmnModeler(modelerOptions);
@@ -174,6 +197,19 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
     modeler.on('commandStack.changed', onChanged);
     modeler.on('import.done', onChanged);
 
+    modeler.on('ngBpmn.toggleProperties', () => {
+      this.toggleProperties();
+    });
+    modeler.on('ngBpmn.exportImage', (event: { format?: 'png' | 'jpeg' } & ExportImageOptions) => {
+      void this.exportImage(event);
+    });
+    modeler.on('ngBpmn.exportSvg', () => {
+      void this.modelingService.downloadSVG(this);
+    });
+    modeler.on('ngBpmn.exportXml', () => {
+      void this.modelingService.downloadXML(this);
+    });
+
     this.bpmnJS = modeler;
   }
 
@@ -200,6 +236,7 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
 
   toggleProperties() {
     this.showProperties = !this.showProperties;
+    this.cdr.detectChanges();
   }
 
   loadUrl(url: string): Subscription {
@@ -243,6 +280,18 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
     } else {
       return Promise.reject('Modeler not initialized');
     }
+  }
+
+  /**
+   * Rasterise the current diagram and trigger a file download.
+   * Defaults to PNG; pass `{ format: 'jpeg' }` for a JPG export.
+   */
+  async exportImage(options: ExportImageOptions = {}): Promise<void> {
+    if (!this.bpmnJS) {
+      return Promise.reject('Modeler not initialized');
+    }
+
+    await this.modelingService.downloadImage(this, options);
   }
 
   private importDiagram(xml: string): Observable<{ warnings: Array<string> }> {

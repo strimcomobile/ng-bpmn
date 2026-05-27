@@ -26,4 +26,17 @@ export enum ModelerActions {
   showMinimap = 'showMinimap',
   hideMinimap = 'hideMinimap',
   moveSelection = 'moveSelection',
+  toggleProperties = 'toggleProperties',
+  exportImage = 'exportImage',
+  exportSvg = 'exportSvg',
+  exportXML = 'exportXML',
+}
+
+export type ExportImageFormat = 'png' | 'jpeg';
+
+export interface ExportImageOptions {
+  format?: ExportImageFormat;
+  fileName?: string;
+  scale?: number;
+  background?: string;
 }

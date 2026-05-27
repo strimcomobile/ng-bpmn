@@ -2,7 +2,11 @@ import { Injector } from '../Injector';
 import { EditorActions } from '../EditorActions';
 import { DiagramSelection } from '../DiagramSelection';
 import { DiagramMinimap } from '../DiagramMinimap';
-import { ModelerActions } from '../ModelerActions';
+import { ExportImageOptions, ModelerActions } from '../ModelerActions';
+
+interface EventBus {
+  fire(event: string, payload?: unknown): unknown;
+}
 
 export default class BpmnActionsModule {
   static $inject = ['injector'];
@@ -11,6 +15,7 @@ export default class BpmnActionsModule {
     const editorActions = injector.get<EditorActions>('editorActions');
     const selection = injector.get<DiagramSelection>('selection');
     const minimap = injector.get<DiagramMinimap>('minimap');
+    const eventBus = injector.get<EventBus>('eventBus');
 
     if (editorActions) {
       editorActions.register('cut', () => {
@@ -28,6 +33,21 @@ export default class BpmnActionsModule {
           [ModelerActions.hideMinimap]: () => minimap.close(),
         });
       }
+
+      editorActions.register({
+        [ModelerActions.toggleProperties]: () => {
+          eventBus?.fire('ngBpmn.toggleProperties');
+        },
+        [ModelerActions.exportImage]: (options: ExportImageOptions = {}) => {
+          eventBus?.fire('ngBpmn.exportImage', options);
+        },
+        [ModelerActions.exportSvg]: () => {
+          eventBus?.fire('ngBpmn.exportSvg');
+        },
+        [ModelerActions.exportXML]: () => {
+          eventBus?.fire('ngBpmn.exportXml');
+        },
+      });
     }
   }
 }

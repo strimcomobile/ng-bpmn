@@ -35,6 +35,18 @@ export class AppToolbarComponent {
     }
   }
 
+  async savePNG() {
+    if (this.modeler) {
+      this.modelingService.downloadImage(this.modeler, { format: 'png' });
+    }
+  }
+
+  async saveJPG() {
+    if (this.modeler) {
+      this.modelingService.downloadImage(this.modeler, { format: 'jpeg' });
+    }
+  }
+
   toggleProperties(): void {
     this.modeler?.toggleProperties();
   }

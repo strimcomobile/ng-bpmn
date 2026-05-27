@@ -1,0 +1,26 @@
+/**
+ * Styling for the custom palette controls group added by `PaletteControlsModule`.
+ * SVG icons inherit `currentColor`, so the existing palette hover / highlight
+ * tokens still apply.
+ */
+
+.djs-palette {
+  .entry.ng-bpmn-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    cursor: pointer;
+
+    svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+      color: inherit;
+    }
+
+    &:hover svg {
+      color: var(--palette-entry-hover-color);
+    }
+  }
+}
