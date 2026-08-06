@@ -9,11 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ng-bpmn: `showComments` property to enable embedded comments via [bpmn-js-embedded-comments](https://github.com/bpmn-io/bpmn-js-embedded-comments)
-- new `ModelingService` to handle frequently used modeling actions (i.e. export to SVG/XML, etc.)
-- app: new toolbar actions: Undo/Redo, Zoom
-
 ### Changed
+
+## [0.1.6] - 2026-08-06
+
+### Added
+
+- ng-bpmn: `taskResizingEnabled` and `eventResizingEnabled` properties to allow resizing tasks/call activities/sub-processes and events via [bpmn-js-task-resize](https://www.npmjs.com/package/bpmn-js-task-resize)
 
 ## [0.0.3] - 2023-05-13
 

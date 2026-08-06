@@ -10,48 +10,6 @@
   "fileMap": {
     "nonProjectFiles": [],
     "projectFileMap": {
-      "e2e": [
-        {
-          "file": "e2e/.eslintrc.json",
-          "hash": "6232838264858069097"
-        },
-        {
-          "file": "e2e/cypress.config.ts",
-          "hash": "15414076024138857470",
-          "deps": [
-            "npm:cypress",
-            "npm:@nx/cypress"
-          ]
-        },
-        {
-          "file": "e2e/project.json",
-          "hash": "8420472387054296266"
-        },
-        {
-          "file": "e2e/src/e2e/app.cy.ts",
-          "hash": "1178890479873750055"
-        },
-        {
-          "file": "e2e/src/fixtures/example.json",
-          "hash": "11614668686582597233"
-        },
-        {
-          "file": "e2e/src/support/app.po.ts",
-          "hash": "11157016311132186162"
-        },
-        {
-          "file": "e2e/src/support/commands.ts",
-          "hash": "7314691991044890572"
-        },
-        {
-          "file": "e2e/src/support/e2e.ts",
-          "hash": "3666078656922506009"
-        },
-        {
-          "file": "e2e/tsconfig.json",
-          "hash": "610573536103898102"
-        }
-      ],
       "ng-bpmn-app": [
         {
           "file": ".editorconfig",
@@ -91,7 +49,7 @@
         },
         {
           "file": ".gitignore",
-          "hash": "14440921568802517786"
+          "hash": "3041743106278633746"
         },
         {
           "file": ".npmrc.example",
@@ -119,7 +77,7 @@
         },
         {
           "file": "CHANGELOG.md",
-          "hash": "5388347259194556584"
+          "hash": "1292746126645109548"
         },
         {
           "file": "LICENSE",
@@ -165,11 +123,11 @@
         },
         {
           "file": "package-lock.json",
-          "hash": "8962402104470542790"
+          "hash": "12138307426843641649"
         },
         {
           "file": "package.json",
-          "hash": "396602541113333429"
+          "hash": "3962900734348135251"
         },
         {
           "file": "project.json",
@@ -177,7 +135,7 @@
         },
         {
           "file": "src/app/app.component.html",
-          "hash": "1888496700904136514"
+          "hash": "13311550440498542930"
         },
         {
           "file": "src/app/app.component.scss",
@@ -234,7 +192,7 @@
         },
         {
           "file": "src/app/toolbar/toolbar.component.html",
-          "hash": "3525292115393049712"
+          "hash": "6791609918994457578"
         },
         {
           "file": "src/app/toolbar/toolbar.component.scss",
@@ -242,7 +200,7 @@
         },
         {
           "file": "src/app/toolbar/toolbar.component.ts",
-          "hash": "3519634889489423602",
+          "hash": "4508780700171322006",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/material",
@@ -312,6 +270,48 @@
           "hash": "16287279946930924495"
         }
       ],
+      "e2e": [
+        {
+          "file": "e2e/.eslintrc.json",
+          "hash": "6232838264858069097"
+        },
+        {
+          "file": "e2e/cypress.config.ts",
+          "hash": "15414076024138857470",
+          "deps": [
+            "npm:cypress",
+            "npm:@nx/cypress"
+          ]
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "8420472387054296266"
+        },
+        {
+          "file": "e2e/src/e2e/app.cy.ts",
+          "hash": "1178890479873750055"
+        },
+        {
+          "file": "e2e/src/fixtures/example.json",
+          "hash": "11614668686582597233"
+        },
+        {
+          "file": "e2e/src/support/app.po.ts",
+          "hash": "11157016311132186162"
+        },
+        {
+          "file": "e2e/src/support/commands.ts",
+          "hash": "7314691991044890572"
+        },
+        {
+          "file": "e2e/src/support/e2e.ts",
+          "hash": "3666078656922506009"
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "610573536103898102"
+        }
+      ],
       "ng-bpmn": [
         {
           "file": "libs/ng-bpmn/.eslintrc.json",
@@ -323,7 +323,7 @@
         },
         {
           "file": "libs/ng-bpmn/README.md",
-          "hash": "8522363067018402596"
+          "hash": "403802450590922188"
         },
         {
           "file": "libs/ng-bpmn/docs/ng-bpmn-default.png",
@@ -343,11 +343,11 @@
         },
         {
           "file": "libs/ng-bpmn/ng-package.json",
-          "hash": "14776408393979573270"
+          "hash": "9834240902418931152"
         },
         {
           "file": "libs/ng-bpmn/package.json",
-          "hash": "13423276643005944327",
+          "hash": "9355434271201729838",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -356,6 +356,7 @@
             "npm:bpmn-js-color-picker",
             "npm:bpmn-js-embedded-comments",
             "npm:bpmn-js-properties-panel",
+            "npm:bpmn-js-task-resize",
             "npm:cmmn-js",
             "npm:cmmn-js-properties-panel",
             "npm:diagram-js",
@@ -373,7 +374,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/index.ts",
-          "hash": "7683155881947410113"
+          "hash": "11661743848876047603"
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/ImportCallback.ts",
@@ -385,7 +386,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/Modeler.ts",
-          "hash": "15342007134659554543"
+          "hash": "8910459426509126098"
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/ModelerComponent.ts",
@@ -400,7 +401,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/modeling/BpmnActionsModule/BpmnActionsModule.ts",
-          "hash": "12830996291226702083"
+          "hash": "14401474658240273464"
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/modeling/BpmnActionsModule/index.ts",
@@ -467,9 +468,8 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/modeling/LabelLinkModule/LabelLinkModule.ts",
-          "hash": "6720345975450344344",
+          "hash": "14763548435786321931",
           "deps": [
-            "npm:min-dom",
             "npm:tiny-svg",
             "npm:diagram-js",
             "npm:bpmn-js"
@@ -481,11 +481,30 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/modeling/ModelerActions.ts",
-          "hash": "10346788042749128749"
+          "hash": "17237646348096065942"
         },
         {
           "file": "libs/ng-bpmn/src/lib/core/modeling/ModelerHotkeys.ts",
           "hash": "15946473108075476983"
+        },
+        {
+          "file": "libs/ng-bpmn/src/lib/core/modeling/PaletteControlsModule/PaletteControlsProvider.ts",
+          "hash": "9351097684108062717",
+          "deps": [
+            "npm:diagram-js"
+          ]
+        },
+        {
+          "file": "libs/ng-bpmn/src/lib/core/modeling/PaletteControlsModule/icons.ts",
+          "hash": "17935154682954275908"
+        },
+        {
+          "file": "libs/ng-bpmn/src/lib/core/modeling/PaletteControlsModule/index.ts",
+          "hash": "11207178954974112292"
+        },
+        {
+          "file": "libs/ng-bpmn/src/lib/core/modeling/PaletteControlsModule/palette-controls.scss",
+          "hash": "10722902460671635028"
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/comments-font/LICENSE.txt",
@@ -513,7 +532,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/ng-bpmn.component.scss",
-          "hash": "16917683228507088794"
+          "hash": "9706627524897032803"
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/ng-bpmn.component.spec.ts",
@@ -525,7 +544,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/ng-bpmn.component.ts",
-          "hash": "6968701869183350536",
+          "hash": "14571900262698281173",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -536,6 +555,7 @@
             "npm:bpmn-js-properties-panel",
             "npm:bpmn-js-color-picker",
             "npm:bpmn-js-embedded-comments",
+            "npm:bpmn-js-task-resize",
             "npm:diagram-js-minimap",
             "npm:@bpmn-io/add-exporter"
           ]
@@ -597,7 +617,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/services/ModelingService.ts",
-          "hash": "11618297020233432286",
+          "hash": "12209022077702384968",
           "deps": [
             "npm:@angular/core",
             "npm:file-saver"
@@ -608,6 +628,10 @@
           "hash": "6603071185971913995"
         },
         {
+          "file": "libs/ng-bpmn/src/lib/utils/svgToImage.ts",
+          "hash": "4036227993321452611"
+        },
+        {
           "file": "libs/ng-bpmn/src/test-setup.ts",
           "hash": "2276844328920824440",
           "deps": [
@@ -616,7 +640,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/types.d.ts",
-          "hash": "8891864728914379617"
+          "hash": "16729371500174919014"
         },
         {
           "file": "libs/ng-bpmn/tsconfig.json",
@@ -637,5 +661,5 @@
       ]
     }
   },
-  "externalNodesHash": "13605397733091388994"
+  "externalNodesHash": "4344253195717482598"
 }

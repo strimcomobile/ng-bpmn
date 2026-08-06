@@ -122,6 +122,20 @@ Access the underlying service from a component reference:
 bpmnComponent.comments?.getComments(element);
 ```
 
+### Task / event resize
+
+Allows resizing tasks (including call activities and sub-processes) and optionally events via [bpmn-js-task-resize](https://www.npmjs.com/package/bpmn-js-task-resize):
+
+```html
+<ng-bpmn
+  [url]="diagramUrl"
+  [taskResizingEnabled]="true"
+  [eventResizingEnabled]="true"
+/>
+```
+
+Select a task or event, then drag a resize handle. Tasks have a minimum size of 100×80; events 36×36.
+
 ## DMN
 
 ```html

@@ -11925,6 +11925,16 @@
     "type": "static"
   },
   {
+    "source": "npm:bpmn-js-task-resize",
+    "target": "npm:bpmn-js",
+    "type": "static"
+  },
+  {
+    "source": "npm:bpmn-js-task-resize",
+    "target": "npm:diagram-js",
+    "type": "static"
+  },
+  {
     "source": "npm:bpmn-moddle",
     "target": "npm:min-dash",
     "type": "static"

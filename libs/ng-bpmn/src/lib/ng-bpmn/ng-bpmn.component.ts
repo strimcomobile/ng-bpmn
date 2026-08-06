@@ -22,6 +22,7 @@ import Canvas from 'diagram-js/lib/core/Canvas';
 import { BpmnPropertiesPanelModule, BpmnPropertiesProviderModule } from 'bpmn-js-properties-panel';
 import ColorPickerModule from 'bpmn-js-color-picker';
 import CommentsModule from 'bpmn-js-embedded-comments';
+import ResizeTaskModule from 'bpmn-js-task-resize/lib';
 import MinimapModule from 'diagram-js-minimap';
 import CommentsSupportModule from '../core/modeling/CommentsSupportModule';
 import LabelLinkModule from '../core/modeling/LabelLinkModule';
@@ -86,6 +87,17 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
    * export. Pass an object to enable/disable individual entries.
    */
   @Input() paletteControls: boolean | PaletteControlsConfig = false;
+  /**
+   * When true, allows resizing tasks, call activities and sub-processes
+   * (bpmn-js-task-resize).
+   */
+  @Input() taskResizingEnabled = false;
+  /**
+   * When true, allows resizing events (bpmn-js-task-resize).
+   * Requires the resize module — enabled automatically when this or
+   * `taskResizingEnabled` is true.
+   */
+  @Input() eventResizingEnabled = false;
 
   @ViewChild('canvas', { static: true })
   private canvas?: ElementRef;
@@ -144,6 +156,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules.push(PaletteControlsModule);
     }
 
+    if (this.taskResizingEnabled || this.eventResizingEnabled) {
+      additionalModules.push(ResizeTaskModule);
+    }
+
     const canvasElement = this.canvas?.nativeElement;
 
     const paletteControlsConfig =
@@ -161,7 +177,9 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       // diagram-js keyboard (arrows, tools) — only when not using hotkeys-js globally
       ...(!this.hotkeys && canvasElement ? { keyboard: { bindTo: canvasElement } } : {}),
       ...(this.colorPicker && this.colorPalette?.length ? { colorPicker: { colors: this.colorPalette } } : {}),
-      ...(paletteControlsConfig ? { paletteControls: paletteControlsConfig } : {})
+      ...(paletteControlsConfig ? { paletteControls: paletteControlsConfig } : {}),
+      ...(this.taskResizingEnabled ? { taskResizingEnabled: true } : {}),
+      ...(this.eventResizingEnabled ? { eventResizingEnabled: true } : {})
     } as ConstructorParameters<typeof BpmnModeler>[0];
 
     const modeler = new BpmnModeler(modelerOptions);

@@ -8235,6 +8235,15 @@
         "hash": "sha512-8OGhw0Iq/VrVZQ/2t84PI6YrDIz3fWmbsQ3mlBd5wTPcHK7VMlhD40Gd6ryozLucR1eYLPPq9blxsKGaYqtofA=="
       }
     },
+    "npm:bpmn-js-task-resize": {
+      "type": "npm",
+      "name": "npm:bpmn-js-task-resize",
+      "data": {
+        "version": "1.2.0",
+        "packageName": "bpmn-js-task-resize",
+        "hash": "sha512-1OnhlbITj/We7jTCZoh82Ndtcv361OcZ/SWy8Lgcb6h8MDcWO0GW+hbtQ46l/Sj2R627/z2nXnyoQFApS1FjjA=="
+      }
+    },
     "npm:bpmn-moddle": {
       "type": "npm",
       "name": "npm:bpmn-moddle",
@@ -17249,6 +17258,7 @@
     "node_modules/bpmn-js-color-picker": "npm:bpmn-js-color-picker",
     "node_modules/bpmn-js-embedded-comments": "npm:bpmn-js-embedded-comments",
     "node_modules/bpmn-js-properties-panel": "npm:bpmn-js-properties-panel",
+    "node_modules/bpmn-js-task-resize": "npm:bpmn-js-task-resize",
     "node_modules/bpmn-moddle": "npm:bpmn-moddle",
     "node_modules/brace-expansion": "npm:brace-expansion",
     "node_modules/braces": "npm:braces",

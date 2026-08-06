@@ -23,7 +23,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@denizz311/ng-bpmn",
-            "packageVersion": "0.1.4",
+            "packageVersion": "0.1.6",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -8616,6 +8616,15 @@
         "hash": "sha512-8OGhw0Iq/VrVZQ/2t84PI6YrDIz3fWmbsQ3mlBd5wTPcHK7VMlhD40Gd6ryozLucR1eYLPPq9blxsKGaYqtofA=="
       }
     },
+    "npm:bpmn-js-task-resize": {
+      "type": "npm",
+      "name": "npm:bpmn-js-task-resize",
+      "data": {
+        "version": "1.2.0",
+        "packageName": "bpmn-js-task-resize",
+        "hash": "sha512-1OnhlbITj/We7jTCZoh82Ndtcv361OcZ/SWy8Lgcb6h8MDcWO0GW+hbtQ46l/Sj2R627/z2nXnyoQFApS1FjjA=="
+      }
+    },
     "npm:bpmn-moddle": {
       "type": "npm",
       "name": "npm:bpmn-moddle",
@@ -16779,6 +16788,11 @@
       {
         "source": "ng-bpmn",
         "target": "npm:bpmn-js-properties-panel",
+        "type": "static"
+      },
+      {
+        "source": "ng-bpmn",
+        "target": "npm:bpmn-js-task-resize",
         "type": "static"
       },
       {
@@ -28735,6 +28749,18 @@
       {
         "source": "npm:bpmn-js-properties-panel",
         "target": "npm:uuid",
+        "type": "static"
+      }
+    ],
+    "npm:bpmn-js-task-resize": [
+      {
+        "source": "npm:bpmn-js-task-resize",
+        "target": "npm:bpmn-js",
+        "type": "static"
+      },
+      {
+        "source": "npm:bpmn-js-task-resize",
+        "target": "npm:diagram-js",
         "type": "static"
       }
     ],
@@ -40779,5 +40805,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1779866116312
+  "computedAt": 1785998747251
 }

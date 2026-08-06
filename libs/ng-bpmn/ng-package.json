@@ -12,6 +12,7 @@
     "jquery",
     "diagram-js",
     "bpmn-js-properties-panel",
+    "bpmn-js-task-resize",
     "diagram-js-minimap",
     "dmn-js",
     "dmn-js-properties-panel",
