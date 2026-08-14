@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -11,7 +10,8 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -24,6 +24,8 @@ import ColorPickerModule from 'bpmn-js-color-picker';
 import CommentsModule from 'bpmn-js-embedded-comments';
 import ResizeTaskModule from 'bpmn-js-task-resize/lib';
 import MinimapModule from 'diagram-js-minimap';
+import Clipboard from 'diagram-js/lib/features/clipboard/Clipboard';
+import NativeCopyPasteModule from 'bpmn-js-native-copy-paste';
 import CommentsSupportModule from '../core/modeling/CommentsSupportModule';
 import LabelLinkModule from '../core/modeling/LabelLinkModule';
 import AddExporter from '@bpmn-io/add-exporter';
@@ -69,8 +71,14 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   private bpmnJS?: BpmnModeler;
 
   @Input({ required: true }) url?: string;
+  /**
+   * Base name for exported files (without extension).
+   * XML is saved as `${fileName}.xml`; SVG/PNG/JPG use the same stem.
+   */
+  @Input() fileName = 'diagram';
   @Input() showProperties = false;
   @Input() showMinimap = false;
+  @Input() enableClipboard = false;
   @Input() autoOpenMinimap = false;
   /** When true, enables embedded comments on flow nodes (bpmn-js-embedded-comments). */
   @Input() showComments = false;
@@ -111,12 +119,18 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Output()
   changed = new EventEmitter<DiagramChangedEvent>();
 
+  sharedClipboard = new Clipboard();
+  private clipboardModule?: any;
+
   private readonly http = inject(HttpClient);
   private readonly modelingService = inject(ModelingService);
   private readonly cdr = inject(ChangeDetectorRef);
 
   constructor() {
     super();
+    this.clipboardModule = {
+      clipboard: ['value', this.sharedClipboard]
+    };
   }
 
   get editorActions(): EditorActions | undefined {
@@ -156,16 +170,18 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules.push(PaletteControlsModule);
     }
 
+    if (this.enableClipboard && this.clipboardModule) {
+      additionalModules.push(this.clipboardModule);
+      additionalModules.push(NativeCopyPasteModule);
+    }
+
     if (this.taskResizingEnabled || this.eventResizingEnabled) {
       additionalModules.push(ResizeTaskModule);
     }
 
     const canvasElement = this.canvas?.nativeElement;
 
-    const paletteControlsConfig =
-      typeof this.paletteControls === 'object' && this.paletteControls !== null
-        ? this.paletteControls
-        : undefined;
+    const paletteControlsConfig = typeof this.paletteControls === 'object' && this.paletteControls !== null ? this.paletteControls : undefined;
 
     const modelerOptions = {
       exporter,
@@ -222,10 +238,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       void this.exportImage(event);
     });
     modeler.on('ngBpmn.exportSvg', () => {
-      void this.modelingService.downloadSVG(this);
+      void this.modelingService.downloadSVG(this, this.exportFileName('svg'));
     });
     modeler.on('ngBpmn.exportXml', () => {
-      void this.modelingService.downloadXML(this);
+      void this.modelingService.downloadXML(this, this.exportFileName('xml'));
     });
 
     this.bpmnJS = modeler;
@@ -309,7 +325,15 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       return Promise.reject('Modeler not initialized');
     }
 
-    await this.modelingService.downloadImage(this, options);
+    await this.modelingService.downloadImage(this, {
+      ...options,
+      fileName: options.fileName ?? this.exportFileName(options.format === 'jpeg' ? 'jpg' : 'png')
+    });
+  }
+
+  private exportFileName(extension: string): string {
+    const base = this.fileName?.trim() || 'diagram';
+    return `${base}.${extension}`;
   }
 
   private importDiagram(xml: string): Observable<{ warnings: Array<string> }> {

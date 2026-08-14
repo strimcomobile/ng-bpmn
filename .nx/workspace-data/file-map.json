@@ -346,8 +346,12 @@
           "hash": "9834240902418931152"
         },
         {
+          "file": "libs/ng-bpmn/package-lock.json",
+          "hash": "13097716296459498593"
+        },
+        {
           "file": "libs/ng-bpmn/package.json",
-          "hash": "9355434271201729838",
+          "hash": "2727582092497626675",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -544,7 +548,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/ng-bpmn.component.ts",
-          "hash": "14571900262698281173",
+          "hash": "13572724647844775674",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",

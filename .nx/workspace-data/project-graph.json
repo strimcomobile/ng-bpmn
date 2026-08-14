@@ -23,7 +23,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@denizz311/ng-bpmn",
-            "packageVersion": "0.1.6",
+            "packageVersion": "0.1.8",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -40805,5 +40805,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1785998747251
+  "computedAt": 1786696819708
 }
