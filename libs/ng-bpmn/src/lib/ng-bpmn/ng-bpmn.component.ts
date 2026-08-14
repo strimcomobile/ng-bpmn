@@ -24,7 +24,6 @@ import ColorPickerModule from 'bpmn-js-color-picker';
 import CommentsModule from 'bpmn-js-embedded-comments';
 import ResizeTaskModule from 'bpmn-js-task-resize/lib';
 import MinimapModule from 'diagram-js-minimap';
-import Clipboard from 'diagram-js/lib/features/clipboard/Clipboard';
 import NativeCopyPasteModule from 'bpmn-js-native-copy-paste';
 import CommentsSupportModule from '../core/modeling/CommentsSupportModule';
 import LabelLinkModule from '../core/modeling/LabelLinkModule';
@@ -78,6 +77,10 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Input() fileName = 'diagram';
   @Input() showProperties = false;
   @Input() showMinimap = false;
+  /**
+   * When true, uses the OS clipboard via bpmn-js-native-copy-paste
+   * so copy/paste works across tabs, windows and modeler instances.
+   */
   @Input() enableClipboard = false;
   @Input() autoOpenMinimap = false;
   /** When true, enables embedded comments on flow nodes (bpmn-js-embedded-comments). */
@@ -119,18 +122,12 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
   @Output()
   changed = new EventEmitter<DiagramChangedEvent>();
 
-  sharedClipboard = new Clipboard();
-  private clipboardModule?: any;
-
   private readonly http = inject(HttpClient);
   private readonly modelingService = inject(ModelingService);
   private readonly cdr = inject(ChangeDetectorRef);
 
   constructor() {
     super();
-    this.clipboardModule = {
-      clipboard: ['value', this.sharedClipboard]
-    };
   }
 
   get editorActions(): EditorActions | undefined {
@@ -170,8 +167,7 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
       additionalModules.push(PaletteControlsModule);
     }
 
-    if (this.enableClipboard && this.clipboardModule) {
-      additionalModules.push(this.clipboardModule);
+    if (this.enableClipboard) {
       additionalModules.push(NativeCopyPasteModule);
     }
 
@@ -199,6 +195,12 @@ export class NgBpmnComponent extends ModelerComponent implements Modeler, OnInit
     } as ConstructorParameters<typeof BpmnModeler>[0];
 
     const modeler = new BpmnModeler(modelerOptions);
+
+    if (this.enableClipboard) {
+      modeler.on('native-copy-paste:error', () => {
+        modeler.get<{ toggle(active: boolean): void }>('nativeCopyPaste').toggle(false);
+      });
+    }
 
     if (this.showMinimap && this.autoOpenMinimap) {
       modeler.get<DiagramMinimap>('minimap').open();

@@ -9,3 +9,4 @@ declare module 'dmn-js-properties-panel';
 declare module 'dmn-js-properties-panel/*';
 declare module 'diagram-js-minimap';
 declare module '@bpmn-io/add-exporter';
+declare module 'bpmn-js-native-copy-paste';

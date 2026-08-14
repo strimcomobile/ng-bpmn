@@ -26,6 +26,15 @@ jest.mock('@bpmn-io/add-exporter', () => {
   };
 });
 
+jest.mock('bpmn-js-native-copy-paste', () => {
+  return {
+    default: {
+      __init__: ['nativeCopyPaste'],
+      nativeCopyPaste: ['type', class NativeCopyPaste {}]
+    }
+  };
+});
+
 jest.mock('dmn-js/lib/Modeler', () => {
   return {
     default: jest.fn().mockImplementation(() => {
