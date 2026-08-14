@@ -6,6 +6,7 @@ import { ExportImageOptions, ModelerActions } from '../ModelerActions';
 
 interface EventBus {
   fire(event: string, payload?: unknown): unknown;
+  on(event: string, callback: () => void): void;
 }
 
 export default class BpmnActionsModule {
@@ -18,13 +19,21 @@ export default class BpmnActionsModule {
     const eventBus = injector.get<EventBus>('eventBus');
 
     if (editorActions) {
-      editorActions.register('cut', () => {
-        const selected = selection.get();
-
-        if (selected && selected.length > 0) {
-          editorActions.trigger('copy');
-          editorActions.trigger('removeSelection');
+      // diagram-js 15+ already registers `cut` on diagram.init when copyPaste is
+      // present. Register a fallback only after that, and only if missing.
+      eventBus?.on('editorActions.init', () => {
+        if (editorActions.isRegistered('cut')) {
+          return;
         }
+
+        editorActions.register('cut', () => {
+          const selected = selection.get();
+
+          if (selected && selected.length > 0) {
+            editorActions.trigger('copy');
+            editorActions.trigger('removeSelection');
+          }
+        });
       });
 
       if (minimap) {
