@@ -87,7 +87,7 @@
         },
         {
           "file": "libs/ng-bpmn/package.json",
-          "hash": "13336883449710844184",
+          "hash": "15925614087755950900",
           "deps": [
             "npm:@angular/common",
             "npm:@angular/core",
@@ -284,7 +284,7 @@
         },
         {
           "file": "libs/ng-bpmn/src/lib/ng-bpmn/ng-bpmn.component.ts",
-          "hash": "13572724647844775674",
+          "hash": "5550835673872870965",
           "deps": [
             "npm:@angular/core",
             "npm:@angular/common",
@@ -373,14 +373,14 @@
         },
         {
           "file": "libs/ng-bpmn/src/test-setup.ts",
-          "hash": "2276844328920824440",
+          "hash": "12753807561939589540",
           "deps": [
             "npm:jest-preset-angular"
           ]
         },
         {
           "file": "libs/ng-bpmn/src/types.d.ts",
-          "hash": "16729371500174919014"
+          "hash": "2584157711821566190"
         },
         {
           "file": "libs/ng-bpmn/tsconfig.json",
@@ -524,7 +524,7 @@
         },
         {
           "file": "src/app/app.component.html",
-          "hash": "13311550440498542930"
+          "hash": "11312521534857748082"
         },
         {
           "file": "src/app/app.component.scss",
@@ -633,7 +633,7 @@
         },
         {
           "file": "src/test-setup.ts",
-          "hash": "4123510561777329215",
+          "hash": "12959288960753801529",
           "deps": [
             "npm:jest-preset-angular"
           ]
